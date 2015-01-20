@@ -1,5 +1,7 @@
 #include "CApp.h"
 
+bool loadMedia();
+
 bool CApp::OnInit(){
     if(SDL_Init(SDL_INIT_EVERYTHING)<0){
         return false;
@@ -8,5 +10,14 @@ bool CApp::OnInit(){
         return false;
     }
     screenSurface = SDL_GetWindowSurface(window);
+    return true;
+}
+
+bool CApp::loadMedia(){
+    gPicture = SDL_LoadBMP("./hello_world.bmp");
+    if(gPicture == NULL){
+        printf("Unable to load! SDL Error: %s\n", SDL_GetError());
+        return false;
+    }
     return true;
 }

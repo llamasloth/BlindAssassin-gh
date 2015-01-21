@@ -1,5 +1,6 @@
 #include "CApp.h"
 void CApp::OnRender(){
-    SDL_BlitSurface(gPicture, NULL, screenSurface, NULL);
-    SDL_UpdateWindowSurface(window);
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, jamesFace, NULL, NULL);
+    SDL_RenderPresent(renderer);
 }

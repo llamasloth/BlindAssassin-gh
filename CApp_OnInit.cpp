@@ -10,6 +10,7 @@ bool CApp::OnInit(){
         return false;
     }
     screenSurface = SDL_GetWindowSurface(window);
+    loadMedia();
     return true;
 }
 

@@ -7,7 +7,6 @@ class CApp{
     private:
         bool Running;
         SDL_Window* window;
-        SDL_Surface* screenSurface;
         SDL_Renderer* renderer;
         SDL_Texture* jamesFace;
 

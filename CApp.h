@@ -1,7 +1,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include <string>
+#include <cmath>
 
 class CApp{
     private:
@@ -10,6 +12,8 @@ class CApp{
         SDL_Renderer* renderer;
         SDL_Texture* jamesFace;
         SDL_Rect jamesDestRect;
+        SDL_Texture* gfonttexture;
+        TTF_Font* gfont;
 
     public: 
 
@@ -22,5 +26,6 @@ class CApp{
         void OnCleanup();
         
         SDL_Texture* loadTexture(std::string path);
+        SDL_Texture* renderText(std::string text, SDL_Color textColor);
         bool loadMedia();
 }; 

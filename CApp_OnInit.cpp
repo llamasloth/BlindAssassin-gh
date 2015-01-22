@@ -13,7 +13,7 @@ bool CApp::OnInit(){
    if((window = SDL_CreateWindow("CApp", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 300, 447, 0))==NULL){
        return false;
     }
-    screenSurface = SDL_GetWindowSurface(window);
+    SDL_Surface* screenSurface = SDL_GetWindowSurface(window);
     if((renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED))==NULL){
         printf("renderer creation failed");
         return false;
@@ -34,6 +34,10 @@ bool CApp::loadMedia(){
         printf("Unable to load! SDL Error: %s\n", SDL_GetError());
         return false;
     }
+	jamesDestRect.x = 15;
+	jamesDestRect.y = 15;
+	jamesDestRect.w = 300;
+	jamesDestRect.h = 447;
     return true;
 }
 

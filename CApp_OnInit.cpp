@@ -18,19 +18,36 @@ bool CApp::OnInit(){
         return false;
     }
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    //initialize img library
     int imgFlags = IMG_INIT_JPG;
     if( !( IMG_Init( imgFlags ) & imgFlags )){
         printf("Image not initialized");
         return false;
     }
+     if( TTF_Init() == -1){
+        printf("TTF not initialized");
+        return false;
+    }
     loadMedia();
     return true;
+
 }
 
 bool CApp::loadMedia(){
     jamesFace = loadTexture(std::string("./james.jpg"));
     if(jamesFace == NULL){
         printf("Unable to load! SDL Error: %s\n", SDL_GetError());
+        return false;
+    }
+    gfont = TTF_OpenFont("./FantasqueSansMono-Regular.ttf",28);
+    if(gfont == NULL){
+        printf("Font failed to load %s\n",TTF_GetError());
+        return false;
+    }
+    //render the text
+    SDL_Color textcolor = {0,0,0,0};
+    if ((gfonttexture = renderText("James the Brahmster", textcolor)) == NULL){
+        printf("Failed to render text\n");
         return false;
     }
     return true;

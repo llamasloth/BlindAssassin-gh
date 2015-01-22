@@ -11,6 +11,7 @@ class CApp{
         SDL_Window* window;
         SDL_Renderer* renderer;
         SDL_Texture* jamesFace;
+        SDL_Texture* gfonttexture;
         TTF_Font* gfont;
 
     public: 

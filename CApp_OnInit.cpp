@@ -39,12 +39,10 @@ bool CApp::loadMedia(){
         printf("Unable to load! SDL Error: %s\n", SDL_GetError());
         return false;
     }
-<<<<<<< HEAD
 	jamesDestRect.x = 15;
 	jamesDestRect.y = 15;
 	jamesDestRect.w = 300;
 	jamesDestRect.h = 447;
-=======
     gfont = TTF_OpenFont("./FantasqueSansMono-Regular.ttf",28);
     if(gfont == NULL){
         printf("Font failed to load %s\n",TTF_GetError());
@@ -56,7 +54,6 @@ bool CApp::loadMedia(){
         printf("Failed to render text\n");
         return false;
     }
->>>>>>> fontrendering
     return true;
 }
 

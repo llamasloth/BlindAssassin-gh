@@ -13,7 +13,6 @@ bool CApp::OnInit(){
    if((window = SDL_CreateWindow("CApp", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 300, 447, 0))==NULL){
        return false;
     }
-    screenSurface = SDL_GetWindowSurface(window);
     if((renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED))==NULL){
         printf("renderer creation failed");
         return false;
@@ -52,4 +51,17 @@ SDL_Texture* CApp::loadTexture(std::string path){
     return newTexture;
 }
     
-
+SDL_Texture* CApp::renderText(std::string text, SDL_Color textColor){
+    SDL_Surface* textSurface = TTF_RenderText_Solid(gfont, text.c_str(), textColor);
+    SDL_Texture* textTexture;
+    if (textSurface == NULL){
+        printf("Text render failed %s\n", TTF_GetError());
+        return NULL;
+    }
+    textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    if(textTexture == NULL){
+        printf("Text texture creation failed");
+        return NULL;
+    }
+    return textTexture;
+}

@@ -1,0 +1,3 @@
+-   Create texture wrapper class
+-   create actor wrapper class
+-   implement timers/framerate caps

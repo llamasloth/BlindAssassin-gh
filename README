@@ -1,1 +1,6 @@
 This will be a swaggin game
+TODO
+====
+-   Create texture wrapper class
+-   create actor wrapper class
+-   implement timers/framerate caps

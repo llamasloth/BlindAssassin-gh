@@ -34,9 +34,8 @@ bool CApp::OnInit(){
 }
 
 bool CApp::loadMedia(){
-    jamesFace = loadTexture(std::string("./james.jpg"));
-    if(jamesFace == NULL){
-        printf("Unable to load! SDL Error: %s\n", SDL_GetError());
+    if(!jamesFace->Load(renderer, "./james.jpg")){
+        SDL_Log("Unable to load! SDL Error: %s\n", SDL_GetError());
         return false;
     }
 	jamesDestRect.x = 15;

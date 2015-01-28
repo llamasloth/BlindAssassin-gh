@@ -5,12 +5,14 @@
 #include <string>
 #include <cmath>
 
+#include "Texture.h"
+
 class CApp{
     private:
         bool Running;
         SDL_Window* window;
         SDL_Renderer* renderer;
-        SDL_Texture* jamesFace;
+        Texture* jamesFace;
         SDL_Rect jamesDestRect;
         SDL_Texture* gfonttexture;
         TTF_Font* gfont;
